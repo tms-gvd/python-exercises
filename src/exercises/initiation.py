@@ -1,3 +1,5 @@
+from typing import Iterable
+
 def mult_two(a: int, b: int) -> int:
     """https://py.checkio.org/en/mission/multiply-intro/
 
@@ -61,8 +63,6 @@ def goes_after(word: str, first: str, second: str) -> bool:
         return ix_second==ix_first+1 if ix_first<len(word)-1 else False
 
 
-from typing import Iterable
-
 def split_pairs(text: str) -> Iterable[str]:
     """https://py.checkio.org/en/mission/split-pairs/
 
@@ -90,3 +90,17 @@ def is_all_upper(text: str) -> bool:
         bool: all symbols are in upper case in the input.
     """
     return text.upper()==text
+
+
+def frequency_sort(items: Iterable) -> Iterable:
+    """https://py.checkio.org/en/mission/sort-array-by-element-frequency/
+
+    Args:
+        items (Iterable): Input iterable
+
+    Returns:
+        Iterable: Input sorted by the decreasing frequency of appearance of its elements
+    """
+    ix_count = {val: items.count(val) for val in items}
+    interm = dict(sorted(ix_count.items(), key=lambda item: item[1], reverse=True))
+    return [key for key, val in interm.items() for _ in range(val)]

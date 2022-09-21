@@ -1,4 +1,4 @@
-from exercises.initiation import mult_two, checkio, flat_list, goes_after, split_pairs, is_all_upper
+from exercises.initiation import *
 import pytest
 
 def test_mult_two():
@@ -48,3 +48,10 @@ def test_is_all_upper():
     assert is_all_upper("") == True
     assert is_all_upper("444") == True
     assert is_all_upper("55 55 5 ") == True
+
+def test_frequency_sort():
+    assert list(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4])) == [4, 4, 4, 4, 6, 6, 2, 2]
+    assert list(frequency_sort(['bob', 'bob', 'carl', 'alex', 'bob'])) == ['bob', 'bob', 'bob', 'carl', 'alex']
+    assert list(frequency_sort([17, 99, 42])) == [17, 99, 42]
+    assert list(frequency_sort([])) == []
+    assert list(frequency_sort([1])) == [1]
