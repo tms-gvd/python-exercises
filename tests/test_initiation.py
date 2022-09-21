@@ -1,4 +1,4 @@
-from exercises.initiation import mult_two, checkio
+from exercises.initiation import mult_two, checkio, flat_list
 import pytest
 
 def test_mult_two():
@@ -17,3 +17,9 @@ def test_checkio():
     assert checkio([99, 98, 99]) == [99, 99]
     assert checkio([0, 0, 0, 1, 1, 100]) == [0, 0, 0, 1, 1]
     assert checkio([0, 0, 0, -1, -1, 100]) == [0, 0, 0, -1, -1]
+
+def test_flat_list():
+    assert flat_list([1, 2, 3]) == [1, 2, 3], "First"
+    assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
+    assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
+    assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
