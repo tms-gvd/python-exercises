@@ -1,4 +1,4 @@
-from exercises.initiation import mult_two, checkio, flat_list, goes_after
+from exercises.initiation import mult_two, checkio, flat_list, goes_after, split_pairs
 import pytest
 
 def test_mult_two():
@@ -33,3 +33,10 @@ def test_goes_after():
     assert goes_after("", "l", "o") == False
     assert goes_after("list", "l", "l") == False
     assert goes_after("world", "d", "w") == False
+
+def test_split_pairs():
+    assert list(split_pairs("abcd")) == ["ab", "cd"]
+    assert list(split_pairs("abc")) == ["ab", "c_"]
+    assert list(split_pairs("abcdf")) == ["ab", "cd", "f_"]
+    assert list(split_pairs("a")) == ["a_"]
+    assert list(split_pairs("")) == []

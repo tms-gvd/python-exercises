@@ -59,3 +59,22 @@ def goes_after(word: str, first: str, second: str) -> bool:
         ix_first = word.find(first)
         ix_second = word.find(second)
         return ix_second==ix_first+1 if ix_first<len(word)-1 else False
+
+
+from typing import Iterable
+
+def split_pairs(text: str) -> Iterable[str]:
+    """https://py.checkio.org/en/mission/split-pairs/
+
+    Args:
+        text (str): A string. 
+
+    Returns:
+        Iterable[str]: A list or another Iterable of strings. 
+    """
+    # if len(text)==0:
+    #     return [""]
+    if len(text)%2!=0:
+        text += "_"
+    for i in range(0, len(text), 2):
+        yield text[i:i+2]
