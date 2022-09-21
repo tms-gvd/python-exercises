@@ -1,5 +1,3 @@
-import numpy as np
-
 def mult_two(a: int, b: int) -> int:
     """https://py.checkio.org/en/mission/multiply-intro/
 
@@ -24,18 +22,40 @@ def checkio(data: list) -> list:
     """
     return [val for val in data if data.count(val)>1]
 
-def flat_list(nested_list: list) -> list:
+
+def flat_list(nl: list) -> list:
     """https://py.checkio.org/en/mission/flatten-list/
 
     Args:
-        nested_list (list): A nested list with integers. 
+        nl (list): A nested list with integers. 
     
     Returns:
         list: The one-dimensional list with integers. 
     """
-    if len(nested_list)==0:
+    if len(nl)==0:
         return []
-    elif isinstance(nested_list[0], int):
-        return [nested_list[0]] + flat_list(nested_list[1:])
+    elif isinstance(nl[0], int):
+        return [nl[0]] + flat_list(nl[1:])
     else:
-        return flat_list(nested_list[0]) + flat_list(nested_list[1:])
+        return flat_list(nl[0]) + flat_list(nl[1:])
+
+
+def goes_after(word: str, first: str, second: str) -> bool:
+    """https://py.checkio.org/en/mission/goes-after/
+
+    Args:
+        word (str): given string
+        first (str): symbol that should go first
+        second (str): symbol that should go right after the first one
+
+    Returns:
+        bool: the second symbol goes right after the first one
+    """
+    if first not in word:
+        return False
+    elif first==second:
+        return False
+    else:
+        ix_first = word.find(first)
+        ix_second = word.find(second)
+        return ix_second==ix_first+1 if ix_first<len(word)-1 else False

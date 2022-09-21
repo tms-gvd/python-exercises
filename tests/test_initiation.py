@@ -1,4 +1,4 @@
-from exercises.initiation import mult_two, checkio, flat_list
+from exercises.initiation import mult_two, checkio, flat_list, goes_after
 import pytest
 
 def test_mult_two():
@@ -23,3 +23,13 @@ def test_flat_list():
     assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4], "Second"
     assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7], "Third"
     assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1], "Four"
+
+def test_goes_after():
+    assert goes_after("world", "w", "o") == True
+    assert goes_after("world", "w", "r") == False
+    assert goes_after("world", "l", "o") == False
+    assert goes_after("panorama", "a", "n") == True
+    assert goes_after("list", "l", "o") == False
+    assert goes_after("", "l", "o") == False
+    assert goes_after("list", "l", "l") == False
+    assert goes_after("world", "d", "w") == False
