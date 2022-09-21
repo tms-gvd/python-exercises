@@ -78,3 +78,15 @@ def split_pairs(text: str) -> Iterable[str]:
         text += "_"
     for i in range(0, len(text), 2):
         yield text[i:i+2]
+
+
+def is_all_upper(text: str) -> bool:
+    """https://py.checkio.org/en/mission/all-upper/
+
+    Args:
+        text (str): A string.
+
+    Returns:
+        bool: all symbols are in upper case in the input.
+    """
+    return text.upper()==text

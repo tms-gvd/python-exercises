@@ -1,4 +1,4 @@
-from exercises.initiation import mult_two, checkio, flat_list, goes_after, split_pairs
+from exercises.initiation import mult_two, checkio, flat_list, goes_after, split_pairs, is_all_upper
 import pytest
 
 def test_mult_two():
@@ -40,3 +40,11 @@ def test_split_pairs():
     assert list(split_pairs("abcdf")) == ["ab", "cd", "f_"]
     assert list(split_pairs("a")) == ["a_"]
     assert list(split_pairs("")) == []
+
+def test_is_all_upper():
+    assert is_all_upper("ALL UPPER") == True
+    assert is_all_upper("all lower") == False
+    assert is_all_upper("mixed UPPER and lower") == False
+    assert is_all_upper("") == True
+    assert is_all_upper("444") == True
+    assert is_all_upper("55 55 5 ") == True
