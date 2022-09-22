@@ -1,4 +1,5 @@
 from typing import Iterable
+from datetime import datetime
 
 def mult_two(a: int, b: int) -> int:
     """https://py.checkio.org/en/mission/multiply-intro/
@@ -104,3 +105,16 @@ def frequency_sort(items: Iterable) -> Iterable:
     ix_count = {val: items.count(val) for val in items}
     interm = dict(sorted(ix_count.items(), key=lambda item: item[1], reverse=True))
     return [key for key, val in interm.items() for _ in range(val)]
+
+
+def time_converter(time:str) -> str:
+    """https://py.checkio.org/en/mission/time-converter-12h-to-24h/
+
+    Args:
+        time (str): Time in a 12-hour format
+
+    Returns:
+        str: Time in a 24-hour format
+    """
+    in_time = datetime.strptime(time.replace("p.m.", "PM").replace("a.m.", "AM"), "%I:%M %p")
+    return datetime.strftime(in_time, "%H:%M")
