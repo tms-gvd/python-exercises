@@ -1,5 +1,7 @@
 from typing import Iterable
 from datetime import datetime
+from math import log10
+
 
 def mult_two(a: int, b: int) -> int:
     """https://py.checkio.org/en/mission/multiply-intro/
@@ -142,3 +144,29 @@ def between_markers(text: str, begin: str, end: str) -> str:
         return ""
     else:
         return text[ix_begin+len(begin):ix_end]
+
+def convert2roman(data:int) -> str:
+    """https://py.checkio.org/en/mission/roman-numerals/
+
+    Args:
+        data (int): A number as an integer
+
+    Returns:
+        str: The Roman numeral as a string
+    """
+    result = ""
+    chars = [("M", "", ""), ("C", "D", "M"), ("X", "L", "C"), ("I", "V", "X")]
+    for char, roman_char in zip(str(data).zfill(4), chars):
+        if int(char)<4:
+            result += roman_char[0]*int(char)
+        elif int(char)==4:
+            result += roman_char[0]+roman_char[1]
+        elif int(char)<9:
+            result += roman_char[1]+roman_char[0]*(int(char)-5)
+        else:
+            result += roman_char[0]+roman_char[2]
+    return result
+
+
+if __name__=="__main__":
+    pass

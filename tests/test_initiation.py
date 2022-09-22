@@ -71,3 +71,9 @@ def test_between_markers():
     assert between_markers("No [b]hi", "[b]", "[/b]") == "hi"
     assert between_markers("No hi", "[b]", "[/b]") == "No hi"
     assert between_markers("No <hi>", ">", "<") == ""
+
+def test_convert2roman():
+    assert convert2roman(6) == 'VI', '6'
+    assert convert2roman(76) == 'LXXVI', '76'
+    assert convert2roman(499) == 'CDXCIX', '499'
+    assert convert2roman(3888) == 'MMMDCCCLXXXVIII', '3888'
