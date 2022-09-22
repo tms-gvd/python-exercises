@@ -118,3 +118,27 @@ def time_converter(time:str) -> str:
     """
     in_time = datetime.strptime(time.replace("p.m.", "PM").replace("a.m.", "AM"), "%I:%M %p")
     return datetime.strftime(in_time, "%H:%M")
+
+
+def between_markers(text: str, begin: str, end: str) -> str:
+    """https://py.checkio.org/en/mission/between-markers/
+
+    Args:
+        text (str): string to investigate
+        begin (str): start marker
+        end (str): end marker
+
+    Returns:
+        str: the substring of the input between the 2 markers
+    """
+    ix_begin, ix_end = text.find(begin), text.find(end)
+    if ix_begin==-1 and ix_end==-1:
+        return text
+    elif ix_begin==-1:
+        return text[:ix_end]
+    elif ix_end==-1:
+        return text[ix_begin+len(begin):]
+    elif ix_begin>ix_end:
+        return ""
+    else:
+        return text[ix_begin+len(begin):ix_end]

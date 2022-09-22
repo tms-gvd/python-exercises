@@ -60,3 +60,14 @@ def test_time_converter():
     assert time_converter('12:30 p.m.') == '12:30'
     assert time_converter('9:00 a.m.') == '09:00'
     assert time_converter('11:15 p.m.') == '23:15'
+
+def test_between_markers():
+    assert between_markers("What is >apple<", ">", "<") == "apple"
+    assert (
+        between_markers("<head><title>My new site</title></head>", "<title>", "</title>")
+        == "My new site"
+    )
+    assert between_markers("No[/b] hi", "[b]", "[/b]") == "No"
+    assert between_markers("No [b]hi", "[b]", "[/b]") == "hi"
+    assert between_markers("No hi", "[b]", "[/b]") == "No hi"
+    assert between_markers("No <hi>", ">", "<") == ""
