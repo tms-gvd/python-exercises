@@ -1,4 +1,4 @@
-from exercises.initiation import *
+from pycheckio.initiation import *
 import pytest
 
 def test_mult_two():

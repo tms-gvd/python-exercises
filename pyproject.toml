@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "python-exercises"
+name = "pycheckio"
 version = "0.1.0"
-description = ""
+description = "My solutions for the Python exercises from https://py.checkio.org/"
 authors = ["tms-gvd <thomas.gaviard@gmail.com>"]
 readme = "README.md"
-packages = [{include = "python_exercises"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pytest = "^7.1.3"
 
 
 [build-system]
