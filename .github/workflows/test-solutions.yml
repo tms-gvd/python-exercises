@@ -25,4 +25,4 @@ jobs:
       - name: Install packages
         run: python -m poetry install
       - name: View coverage --help
-        run: coverage --help
+        run: poetry run coverage --help
