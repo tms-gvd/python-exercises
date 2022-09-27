@@ -48,3 +48,5 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           branch: ${{ github.ref }}
+      - name: Check code with Pylint
+        run: poetry run pylint pycheckio
