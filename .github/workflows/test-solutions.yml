@@ -20,12 +20,10 @@ jobs:
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: ${{ matrix.poetry-version }}
-      - name: View poetry --help
-        run: poetry --help
+
       - name: Install packages
         run: python -m poetry install
-      - name: View coverage --help
-        run: poetry run coverage --help
+
       - name: Create report
         run: poetry run coverage run -m pytest
       - name: Generate Coverage Badge
@@ -48,5 +46,6 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           branch: ${{ github.ref }}
+
       - name: Check code with Pylint
         run: poetry run pylint pycheckio

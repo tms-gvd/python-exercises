@@ -1,3 +1,5 @@
+"""Solutions for initiation exercises"""
+
 from typing import Iterable
 from datetime import datetime
 
