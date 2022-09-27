@@ -2,46 +2,45 @@ from typing import Iterable
 from datetime import datetime
 
 
-def mult_two(a: int, b: int) -> int:
+def mult_two(int1: int, int2: int) -> int:
     """https://py.checkio.org/en/mission/multiply-intro/
 
     Args:
-        a (int): first input
-        b (int): second input
+        input1 (int): first input
+        input2 (int): second input
 
     Returns:
         int: multiplication of a and b.
     """
-    return a*b
+    return int1*int2
 
 
 def checkio(data: list) -> list:
     """https://py.checkio.org/en/mission/non-unique-elements/
 
     Args:
-        data (list): A list of integers. 
+        data (list): A list of integers.
 
     Returns:
-        list: An iterable of integers, consisting of only the non-unique elements in the input list. 
+        list: An iterable of integers, consisting of only the non-unique elements in the input list.
     """
     return [val for val in data if data.count(val)>1]
 
 
-def flat_list(nl: list) -> list:
+def flat_list(nested_list: list) -> list:
     """https://py.checkio.org/en/mission/flatten-list/
 
     Args:
-        nl (list): A nested list with integers. 
-    
+        nested_list (list): A nested list with integers.
+
     Returns:
-        list: The one-dimensional list with integers. 
+        list: The one-dimensional list with integers.
     """
-    if len(nl)==0:
+    if len(nested_list)==0:
         return []
-    elif isinstance(nl[0], int):
-        return [nl[0]] + flat_list(nl[1:])
-    else:
-        return flat_list(nl[0]) + flat_list(nl[1:])
+    if isinstance(nested_list[0], int):
+        return [nested_list[0]] + flat_list(nested_list[1:])
+    return flat_list(nested_list[0]) + flat_list(nested_list[1:])
 
 
 def goes_after(word: str, first: str, second: str) -> bool:
@@ -57,22 +56,21 @@ def goes_after(word: str, first: str, second: str) -> bool:
     """
     if first not in word:
         return False
-    elif first==second:
+    if first==second:
         return False
-    else:
-        ix_first = word.find(first)
-        ix_second = word.find(second)
-        return ix_second==ix_first+1 if ix_first<len(word)-1 else False
+    ix_first = word.find(first)
+    ix_second = word.find(second)
+    return ix_second==ix_first+1 if ix_first<len(word)-1 else False
 
 
 def split_pairs(text: str) -> Iterable[str]:
     """https://py.checkio.org/en/mission/split-pairs/
 
     Args:
-        text (str): A string. 
+        text (str): A string.
 
     Returns:
-        Iterable[str]: A list or another Iterable of strings. 
+        Iterable[str]: A list or another Iterable of strings.
     """
     # if len(text)==0:
     #     return [""]
@@ -135,14 +133,13 @@ def between_markers(text: str, begin: str, end: str) -> str:
     ix_begin, ix_end = text.find(begin), text.find(end)
     if ix_begin==-1 and ix_end==-1:
         return text
-    elif ix_begin==-1:
+    if ix_begin==-1:
         return text[:ix_end]
-    elif ix_end==-1:
+    if ix_end==-1:
         return text[ix_begin+len(begin):]
-    elif ix_begin>ix_end:
+    if ix_begin>ix_end:
         return ""
-    else:
-        return text[ix_begin+len(begin):ix_end]
+    return text[ix_begin+len(begin):ix_end]
 
 
 def convert2roman(data:int) -> str:
@@ -166,7 +163,6 @@ def convert2roman(data:int) -> str:
         else:
             result += roman_char[0]+roman_char[2]
     return result
-
 
 if __name__=="__main__":
     pass
