@@ -1,4 +1,4 @@
-"""Solutions for initiation exercises"""
+"""Solutions for initiation exercises from https://py.checkio.org"""
 
 from typing import Iterable
 from datetime import datetime
